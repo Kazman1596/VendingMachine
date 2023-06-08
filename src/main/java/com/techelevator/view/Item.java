@@ -8,10 +8,8 @@ public class Item extends Inventory{
     private String name;
     private double price;
     private String category;
-    private int inventory = 5;
+    private int itemInventory = 5;
 
-    public static void main(String[] args) {
-    }
 
     public Item(String inputCode) {
         ArrayList<String> inventory = (super.getItems());
@@ -25,6 +23,35 @@ public class Item extends Inventory{
         }
     }
 
+    //Getters and Setters
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public int getItemInventory() {
+        return itemInventory;
+    }
+
+    public void dispenseItem() {
+        if (itemInventory > 0) {
+            itemInventory -= 1;
+        } else {
+            System.out.println("OUT OF STOCK");
+        }
+    }
 
 
 }
