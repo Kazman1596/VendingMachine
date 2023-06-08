@@ -1,6 +1,7 @@
 package com.techelevator;
 
 
+import com.techelevator.view.Inventory;
 import com.techelevator.view.Item;
 import com.techelevator.view.Menu;
 
@@ -24,12 +25,14 @@ public class VendingMachineCLI {
 		this.menu = menu;
 	}
 
+	Inventory inventory = new Inventory();
+
 	public void run() {
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
-				// display vending machine items
+				inventory.displayInventory();
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
 			} else if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
@@ -37,6 +40,7 @@ public class VendingMachineCLI {
 			}
 		}
 	}
+
 
 	public static void main(String[] args) {
 		Menu menu = new Menu(System.in, System.out);

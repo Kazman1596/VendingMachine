@@ -7,8 +7,9 @@ import java.sql.Array;
 import java.util.*;
 
 public class Inventory {
+    Item item;
     private static ArrayList<String> inventory = new ArrayList<String>();
-    public static void main(String[] args) {
+    public Inventory() {
         File vendingMachineInventory = new File("vendingmachine.csv");
         try (Scanner scanner = new Scanner(vendingMachineInventory)) {
             while (scanner.hasNextLine()) {
@@ -20,6 +21,19 @@ public class Inventory {
         }
 
     }
+
+    public void displayInventory() {
+        for (String item: inventory) {
+
+            String[] strSplit = item.split("\\|");
+            item = new Item(strSplit[0]);
+            System.out.println(strSplit[0] + strSplit[1] + strSplit[2] + item;
+        }
+
+    }
+
+
+
 
     public static ArrayList<String> getItems() {
         return inventory;
