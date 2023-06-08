@@ -21,7 +21,6 @@ public class Inventory {
                 String[] strSplit = item.split("\\|");
                 String itemCode = strSplit[0];
                 Item currentItem = new Item(itemCode, strSplit[1], strSplit[2], strSplit[3]);
-                System.out.println(currentItem); //+ currentItem.getItemInventory());
                 inventoryMap.put(itemCode, currentItem);
             }
 
@@ -29,6 +28,8 @@ public class Inventory {
             System.out.println("Something went wrong fetching inventory");
         }
 
+    }
+    public static void displayInventory() {
     }
 
     public static ArrayList<String> getItems() {
