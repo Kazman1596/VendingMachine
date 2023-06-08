@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Inventory {
 
+
     private static ArrayList<String> inventory = new ArrayList<String>();
     public static void main(String[] args) {
         File vendingMachineInventory = new File("vendingmachine.csv");
@@ -20,6 +21,8 @@ public class Inventory {
         } catch (Exception ex) {
             System.out.println("Something went wrong fetching inventory");
         }
+
+        System.out.println(getInventory());
 
     }
     public static Map<String, Integer> getInventory() {
