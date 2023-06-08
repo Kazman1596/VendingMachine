@@ -20,9 +20,12 @@ public class Item extends Inventory{
                 this.name = itemContents[1];
                 this.price = Double.parseDouble(itemContents[2]);
                 this.category = itemContents[3];
+
             }
         }
     }
+
+
 
     //Getters and Setters
 

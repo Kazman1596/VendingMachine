@@ -21,6 +21,13 @@ public class Inventory {
 
     }
 
+    public void displayInventory() {
+
+    }
+
+
+
+
     public static ArrayList<String> getItems() {
         return inventory;
     }
