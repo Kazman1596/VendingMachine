@@ -1,6 +1,7 @@
 package com.techelevator;
 
 
+import com.techelevator.view.Inventory;
 import com.techelevator.view.Item;
 import com.techelevator.view.Menu;
 
@@ -19,6 +20,7 @@ public class VendingMachineCLI {
 
 
 	private Menu menu;
+	Inventory inventory = new Inventory();
 
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;

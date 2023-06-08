@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Inventory {
     private static ArrayList<String> inventory = new ArrayList<String>();
-    public static void main(String[] args) {
+    public Inventory() {
         File vendingMachineInventory = new File("vendingmachine.csv");
         try (Scanner scanner = new Scanner(vendingMachineInventory)) {
             while (scanner.hasNextLine()) {
@@ -24,5 +24,6 @@ public class Inventory {
     public static ArrayList<String> getItems() {
         return inventory;
     }
+
 
 }
