@@ -30,6 +30,8 @@ public class VendingMachineCLI {
 				// display vending machine items
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
+			} else if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
+				break;
 			}
 		}
 	}
