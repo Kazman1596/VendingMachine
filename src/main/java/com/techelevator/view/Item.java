@@ -2,7 +2,7 @@ package com.techelevator.view;
 
 import java.util.ArrayList;
 
-public class Item extends Inventory{
+public class Item  {
 
     private String code;
     private String name;
@@ -11,18 +11,18 @@ public class Item extends Inventory{
     private int itemInventory = 5;
 
 
-    public Item(String inputCode) {
-        ArrayList<String> inventory = (super.getItems());
-        for (String item : inventory) {
-            if (item.startsWith(inputCode)) {
-                String[] itemContents = item.split("\\|");
-                this.code = itemContents[0];
-                this.name = itemContents[1];
-                this.price = Double.parseDouble(itemContents[2]);
-                this.category = itemContents[3];
+    public Item(String inputCode,String name, String price, String category) {
+//        ArrayList<String> inventory = (super.getItems());       //test removing line 15-1
+//        for (String item : inventory) {
+//            if (item.startsWith(inputCode)) {
+//                String[] itemContents = item.split("\\|");
+                this.code = inputCode;
+                this.name = name;
+                this.price = Double.parseDouble(price);
+                this.category = category;
 
-            }
-        }
+//            }
+//        }
     }
 
 
@@ -56,6 +56,9 @@ public class Item extends Inventory{
             System.out.println("OUT OF STOCK");
         }
     }
-
+    @Override
+    public String toString() {
+        return code + " | " + name + " | " + price;
+    }
 
 }

@@ -8,7 +8,8 @@ import java.util.*;
 
 public class Inventory {
     Item item;
-    private static ArrayList<String> inventory = new ArrayList<String>();
+    private static ArrayList<String> inventory = new ArrayList<>();
+    private static Map<String, Item> inventoryMap = new TreeMap<>();
     public Inventory() {
         File vendingMachineInventory = new File("vendingmachine.csv");
         try (Scanner scanner = new Scanner(vendingMachineInventory)) {
@@ -16,6 +17,14 @@ public class Inventory {
                 String line = scanner.nextLine();
                 inventory.add(line);
             }
+            for (String item: inventory) {
+                String[] strSplit = item.split("\\|");
+                String itemCode = strSplit[0];
+                Item currentItem = new Item(itemCode, strSplit[1], strSplit[2], strSplit[3]);
+                System.out.println(currentItem); //+ currentItem.getItemInventory());
+                inventoryMap.put(itemCode, currentItem);
+            }
+
         } catch (Exception ex) {
             System.out.println("Something went wrong fetching inventory");
         }
@@ -23,12 +32,12 @@ public class Inventory {
     }
 
     public void displayInventory() {
-        for (String item: inventory) {
-
-            String[] strSplit = item.split("\\|");
-            item = new Item(strSplit[0]);
-            System.out.println(strSplit[0] + strSplit[1] + strSplit[2] + item;
-        }
+//        for (String item: inventory) {
+//            String[] strSplit = item.split("\\|");
+//            String itemCode = strSplit[0];
+//            Item currentItem = new Item(itemCode, strSplit[1], strSplit[2], strSplit[3]);
+//            System.out.println(currentItem); //+ currentItem.getItemInventory());
+//        }
 
     }
 
