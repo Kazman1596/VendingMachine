@@ -30,12 +30,13 @@ public class VendingMachineCLI {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
+				inventory.displayInventory();
 				//display inventory
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				String purchaseChoice = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
 
 				if (choice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
-					//Add Money to machine
+
 				} else if (choice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
 					//Select a product to purchase
 				} else if (choice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
