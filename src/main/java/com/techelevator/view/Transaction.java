@@ -4,13 +4,14 @@ import java.util.Map;
 
 public class Transaction {
     //balance (g/s)
-    private double balance = 0;
+    private static double balance = 0;
 
     //pick option
     //inventory method
 
-    public void setBalance(double moneyReceived) {
-        balance += moneyReceived;
+    public void setBalance(String moneyReceived) {
+        Integer money = Integer.parseInt(moneyReceived);
+        balance += money;
     }
 
     public double getBalance() {
@@ -47,12 +48,15 @@ public class Transaction {
 
         if (inventory.containsKey(code)) {
             Item currentItem = inventory.get(code);
+
             if (currentItem.getItemInventory() > 0) {
-                System.out.println(currentItem.getName() + currentItem.getPrice());
+                System.out.println(currentItem.getName() + " $" + currentItem.getPrice() + " " + balance);
             } else {
                 System.out.println("OUT OF STOCK");
             }
         }
-
+        else {
+            System.out.println("INVALID CODE, PLEASE TRY AGAIN");
+        }
     }
 }

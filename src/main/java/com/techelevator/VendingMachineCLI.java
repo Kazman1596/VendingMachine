@@ -20,6 +20,7 @@ public class VendingMachineCLI {
 
 	private static final String[] PURCHASE_MENU_OPTIONS = { PURCHASE_MENU_OPTION_FEED_MONEY, PURCHASE_MENU_OPTION_SELECT_PRODUCT, PURCHASE_MENU_OPTION_FINISH_TRANSACTION};
 
+	Scanner scanner = new Scanner(System.in);
 	private Menu menu;
 	Transaction transaction = new Transaction();
 	Inventory inventory = new Inventory();
@@ -38,9 +39,12 @@ public class VendingMachineCLI {
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				String purchaseChoice = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
 				if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
-
+					System.out.println("Input $(1), $(5), or $(10) bill please:");
+					String moneyInput = scanner.nextLine();
+					transaction.setBalance(moneyInput);
+					transaction.displayBalance();
 				} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
-					Scanner scanner = new Scanner(System.in);
+
 					inventory.displayInventory();
 					System.out.println("Please enter item code: ");
 					String userInput = scanner.nextLine();
