@@ -4,7 +4,7 @@ package com.techelevator;
 import com.techelevator.view.Inventory;
 import com.techelevator.view.Menu;
 import com.techelevator.view.PurchaseMenu;
-import com.techelevator.view.Transaction;
+
 
 import java.util.Scanner;
 
@@ -17,9 +17,7 @@ public class VendingMachineCLI {
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE, MAIN_MENU_OPTION_EXIT, MAIN_MENU_SECRET_OPTION };
 
 
-	Scanner scanner = new Scanner(System.in);
 	private Menu menu;
-	Transaction transaction = new Transaction();
 	Inventory inventory = new Inventory();
 	PurchaseMenu purchaseMenu = new PurchaseMenu();
 

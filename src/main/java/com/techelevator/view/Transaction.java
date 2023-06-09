@@ -53,9 +53,10 @@ public class Transaction {
                 balance -= currentItem.getPrice();
 
                 //TODO need to add item inventory minus 1
+                currentItem.setItemInventory();
 
 
-                System.out.println(currentItem.getName() + " $" + currentItem.getPrice() + " Remaining Balance: $" + balance);
+                System.out.println(currentItem);
                 //TODO need to return to purchase menu
 
             } else {

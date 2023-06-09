@@ -44,6 +44,11 @@ public class Item {
         return itemInventory;
     }
 
+    public void setItemInventory() {
+        if (itemInventory > 0) {
+            itemInventory -=1;
+        }
+    }
 
     @Override
     public String toString() {
