@@ -14,7 +14,7 @@ public class Transaction {
         balance += money;
     }
 
-    public double getBalance() {
+    public static double getBalance() {
         return balance;
     }
 
@@ -22,14 +22,14 @@ public class Transaction {
         System.out.println("BALANCE: $" + balance);
     }
 
-    public void getChange() {
+    public static void getChange() {
         //counters for coins
         int quarter = 0;
         int dime = 0;
         int nickel = 0;
         if (balance / 25 > 0) {
-            quarter = (int) (balance / 25);
-            balance = (int) (balance % 25);
+            quarter = (int) (balance*100 / 25);
+            balance = (int) (balance*100 % 25);
         }
         if (balance / 10 > 0) {
             dime = (int) (balance / 10);

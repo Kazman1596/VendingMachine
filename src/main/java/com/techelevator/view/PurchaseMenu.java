@@ -14,20 +14,22 @@ public class PurchaseMenu {
 
     public void runPurchaseMenu() {
         while(true) {
+            transaction.displayBalance();
             String purchaseChoice = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
             if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
                 System.out.println("Input $(1), $(5), or $(10) bill please:");
                 String moneyInput = scanner.nextLine();
                 transaction.setBalance(moneyInput);
-                transaction.displayBalance();
+                //transaction.displayBalance();
             } else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
 
                 inventory.displayInventory();
                 System.out.println("Please enter item code: ");
-                String userInput = scanner.nextLine();
+                String userInput = scanner.nextLine().toUpperCase();
                 transaction.dispenseItem(userInput);
 
             } else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
+                Transaction.getChange();
                 break;
             }
         }
