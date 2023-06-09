@@ -3,6 +3,9 @@ package com.techelevator;
 
 import com.techelevator.view.Inventory;
 import com.techelevator.view.Menu;
+import com.techelevator.view.Transaction;
+
+import java.util.Scanner;
 
 public class VendingMachineCLI {
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
@@ -24,20 +27,25 @@ public class VendingMachineCLI {
 		this.menu = menu;
 	}
 
-
+	Transaction transaction = new Transaction();
 	public void run() {
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
+				inventory.displayInventory();
 
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				String purchaseChoice = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
-
 				if (choice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
-					//Add Money to machine
+
 				} else if (choice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
-					//Select a product to purchase
+					System.out.println("Please enter item code: ");
+					inventory.displayInventory();
+					Scanner scanner = new Scanner(System.in);
+					String userInput = scanner.nextLine();
+					Transaction.dispenseItem(userInput);
+
 				} else if (choice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
 					break;
 				}

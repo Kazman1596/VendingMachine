@@ -29,12 +29,21 @@ public class Inventory {
         }
 
     }
-    public static void displayInventory() {
-    }
 
     public static ArrayList<String> getItems() {
         return inventory;
     }
 
+    public static void displayInventory() {
+        for (String item: inventory) {
+            String[] strSplit = item.split("\\|");
+            String itemCode = strSplit[0];
+            Item currentItem = new Item(itemCode, strSplit[1], strSplit[2], strSplit[3]);
+            System.out.println(currentItem);
+        }
+    }
 
+    public static Map<String, Item> getInventoryMap() {
+        return inventoryMap;
+    }
 }
