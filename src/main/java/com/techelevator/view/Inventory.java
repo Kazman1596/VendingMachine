@@ -28,7 +28,6 @@ public class Inventory {
             System.out.println("Something went wrong fetching inventory");
         }
 
-        System.out.println(137 % 25);
     }
 
     public static ArrayList<String> getItems() {
