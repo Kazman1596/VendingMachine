@@ -30,6 +30,7 @@ public class Transaction {
         int quarter = 0;
         int dime = 0;
         int nickel = 0;
+        System.out.println("CHANGE: $" +balance);
         if (balance / 25 > 0) {
             quarter = (int) (balance*100 / 25);
             balance = (int) (balance*100 % 25);
@@ -56,7 +57,7 @@ public class Transaction {
                 balance -= currentItem.getPrice();
                 currentItem.setItemInventory();
                 System.out.println(currentItem);
-
+                currentItem.getMessage();
             } else {
                 System.out.println("OUT OF STOCK");
             }

@@ -49,6 +49,21 @@ public class Item {
             itemInventory -=1;
         }
     }
+    public void getMessage() {
+        if (category.equals("Chip")) {
+            System.out.println("Crunch Crunch, Yum!");
+        }
+        if (category.equals("Candy")) {
+            System.out.println("Munch Munch, Yum!");
+        }
+        if (category.equals("Drink")) {
+            System.out.println("Glug Glug, Yum!");
+        }
+        if (category.equals("Gum")) {
+            System.out.println("Chew Chew, Yum!");
+        }
+    }
+
 
     @Override
     public String toString() {
