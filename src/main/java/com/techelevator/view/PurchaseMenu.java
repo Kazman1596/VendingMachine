@@ -24,7 +24,7 @@ public class PurchaseMenu {
 
                 inventory.displayInventory();
                 System.out.println("Please enter item code: ");
-                String userInput = scanner.nextLine();
+                String userInput = scanner.nextLine().toUpperCase();
                 transaction.dispenseItem(userInput);
 
             } else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
