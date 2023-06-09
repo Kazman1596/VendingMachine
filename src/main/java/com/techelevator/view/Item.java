@@ -8,21 +8,16 @@ public class Item  {
     private String name;
     private double price;
     private String category;
-    private int itemInventory = 5;
+    private int itemInventory;
 
 
     public Item(String inputCode,String name, String price, String category) {
-//        ArrayList<String> inventory = (super.getItems());       //test removing line 15-1
-//        for (String item : inventory) {
-//            if (item.startsWith(inputCode)) {
-//                String[] itemContents = item.split("\\|");
                 this.code = inputCode;
                 this.name = name;
                 this.price = Double.parseDouble(price);
                 this.category = category;
+                this.itemInventory = 5;
 
-//            }
-//        }
     }
 
 

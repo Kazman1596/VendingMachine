@@ -37,6 +37,7 @@ public class VendingMachineCLI {
 				if (choice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
 
 				} else if (choice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
+
 					//Select a product to purchase
 				} else if (choice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
 					break;
