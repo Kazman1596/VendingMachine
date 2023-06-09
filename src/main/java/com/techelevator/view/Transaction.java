@@ -1,19 +1,22 @@
 package com.techelevator.view;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 public class Transaction {
-    //balance (g/s)
     private static double balance = 0;
-
-    //pick option
-    //inventory method
 
     public void setBalance(String moneyReceived) {
         Integer money = Integer.parseInt(moneyReceived);
         //Added if money added is not $1/$5/$10
         if (money == 1 || money == 5 || money == 10) {
             balance += money;
+            logTransaction("FEED MONEY", money);
         } else System.out.println("PLEASE ENTER A VALID BILL");
     }
 
@@ -26,6 +29,7 @@ public class Transaction {
     }
 
     public static void getChange() {
+        double changeDue = balance;
         //counters for coins
         int quarter = 0;
         int dime = 0;
@@ -42,11 +46,12 @@ public class Transaction {
             nickel = (int) (balance / 5);
             balance = (int) (balance % 5);
         }
+        logTransaction("GIVE CHANGE", changeDue);
         System.out.println("Here is your change: " + quarter + " quarters , " + dime + " dimes, " + nickel + " nickels");
     }
 
 
-    public static void dispenseItem(String code) {
+    public void dispenseItem(String code) {
         Map<String, Item> inventory = Inventory.getInventoryMap();
 
         if (inventory.containsKey(code)) {
@@ -55,6 +60,7 @@ public class Transaction {
             if (currentItem.getItemInventory() > 0) {
                 balance -= currentItem.getPrice();
                 currentItem.setItemInventory();
+                logTransaction(currentItem.getName(), currentItem.getPrice());
                 System.out.println(currentItem);
 
             } else {
@@ -63,5 +69,21 @@ public class Transaction {
         } else {
             System.out.println("INVALID CODE, PLEASE TRY AGAIN");
         }
+    }
+
+    public static void logTransaction(String action, double dollar) {
+
+        File logFile = new File("log.txt");
+
+        try(PrintWriter writer = new PrintWriter(new FileOutputStream(logFile, true))) {
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  ;
+            Date date = new Date();
+
+            writer.println(formatter.format(date) + " " + action + ": $" + dollar + " $" + balance);
+
+        } catch (Exception ex) {
+            System.out.println("Problem logging Transaction");
+        }
+
     }
 }
