@@ -22,7 +22,7 @@ public class Transaction {
     }
 
     public void displayBalance() {
-        System.out.println("BALANCE: $" + balance);
+        System.out.println("Current Money Provided: $" + balance);
     }
 
     public static void getChange() {
