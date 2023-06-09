@@ -4,12 +4,12 @@ import java.util.Map;
 
 public class Transaction {
     //balance (g/s)
-    private double balance = 0;
+    private static double balance = 0;
 
     //pick option
     //inventory method
 
-    public void feedMoney(double moneyReceived) {
+    public void setBalance(double moneyReceived) {
         balance += moneyReceived;
     }
 
@@ -45,14 +45,18 @@ public class Transaction {
     public static void dispenseItem(String code) {
         //we want to check to see if scanner contains code
         Map<String, Item> inventory = Inventory.getInventoryMap();
+        //we are comparing user input to any item code if it matches & returns NAME, PRICE, REMAINING BALANCE
         if (inventory.containsKey(code)) {
             Item currentItem = inventory.get(code);
+
             if (currentItem.getItemInventory() > 0) {
-                System.out.println(currentItem.getName() + currentItem.getPrice());
+                System.out.println(currentItem.getName() + " $" + currentItem.getPrice() + " " + balance);
             } else {
                 System.out.println("OUT OF STOCK");
             }
         }
-
+        else {
+            System.out.println("INVALID CODE, PLEASE TRY AGAIN");
+        }
     }
 }

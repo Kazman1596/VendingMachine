@@ -2,7 +2,7 @@ package com.techelevator.view;
 
 import java.util.ArrayList;
 
-public class Item extends Inventory {
+public class Item {
 
     private String code;
     private String name;

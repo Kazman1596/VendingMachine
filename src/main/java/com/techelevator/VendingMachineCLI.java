@@ -37,16 +37,16 @@ public class VendingMachineCLI {
 
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				String purchaseChoice = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
-				if (choice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
+				if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
 
-				} else if (choice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
+				} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
 					System.out.println("Please enter item code: ");
 					inventory.displayInventory();
 					Scanner scanner = new Scanner(System.in);
-					String userInput = scanner.nextLine();
+					String userInput = scanner.nextLine().toUpperCase();
 					Transaction.dispenseItem(userInput);
 
-				} else if (choice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
+				} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
 					break;
 				}
 			} else if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
