@@ -11,7 +11,10 @@ public class Transaction {
 
     public void setBalance(String moneyReceived) {
         Integer money = Integer.parseInt(moneyReceived);
-        balance += money;
+        //Added if money added is not $1/$5/$10
+        if (money == 1 || money == 5 || money == 10) {
+            balance += money;
+        } else System.out.println("PLEASE ENTER A VALID BILL");
     }
 
     public static double getBalance() {
