@@ -50,7 +50,14 @@ public class Transaction {
             Item currentItem = inventory.get(code);
 
             if (currentItem.getItemInventory() > 0) {
+                balance -= currentItem.getPrice();
+
+                //TODO need to add item inventory minus 1
+
+
                 System.out.println(currentItem.getName() + " $" + currentItem.getPrice() + " Remaining Balance: $" + balance);
+                //TODO need to return to purchase menu
+
             } else {
                 System.out.println("OUT OF STOCK");
             }
