@@ -2,7 +2,7 @@ package com.techelevator.view;
 
 import java.util.ArrayList;
 
-public class Item  {
+public class Item {
 
     private String code;
     private String name;
@@ -44,16 +44,10 @@ public class Item  {
         return itemInventory;
     }
 
-    public void dispenseItem() {
-        if (itemInventory > 0) {
-            itemInventory -= 1;
-        } else {
-            System.out.println("OUT OF STOCK");
-        }
-    }
+
     @Override
     public String toString() {
-        return code + " | " + name + " | " + price;
+        return code + " | " + name + " | Price: $" + price + " | Quantity: " + itemInventory;
     }
 
 }

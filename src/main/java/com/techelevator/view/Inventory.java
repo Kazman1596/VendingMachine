@@ -43,5 +43,7 @@ public class Inventory {
         }
     }
 
-
+    public static Map<String, Item> getInventoryMap() {
+        return inventoryMap;
+    }
 }

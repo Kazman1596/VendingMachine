@@ -3,6 +3,9 @@ package com.techelevator;
 
 import com.techelevator.view.Inventory;
 import com.techelevator.view.Menu;
+import com.techelevator.view.Transaction;
+
+import java.util.Scanner;
 
 public class VendingMachineCLI {
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
@@ -18,28 +21,32 @@ public class VendingMachineCLI {
 	private static final String[] PURCHASE_MENU_OPTIONS = { PURCHASE_MENU_OPTION_FEED_MONEY, PURCHASE_MENU_OPTION_SELECT_PRODUCT, PURCHASE_MENU_OPTION_FINISH_TRANSACTION};
 
 	private Menu menu;
+	Transaction transaction = new Transaction();
 	Inventory inventory = new Inventory();
+
 
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
 	}
-
-
 	public void run() {
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				inventory.displayInventory();
+
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				String purchaseChoice = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
+				if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
 
-				if (choice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
+				} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
+					Scanner scanner = new Scanner(System.in);
+					inventory.displayInventory();
+					System.out.println("Please enter item code: ");
+					String userInput = scanner.nextLine();
+					transaction.dispenseItem("B4");
 
-				} else if (choice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
-
-					//Select a product to purchase
-				} else if (choice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
+				} else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
 					break;
 				}
 			} else if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
