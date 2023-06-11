@@ -8,11 +8,11 @@ import java.util.Date;
 import java.util.Map;
 
 public class Transaction {
-    private static double balance = 0;
+    private double balance = 0;
 
     public void setBalance(String moneyReceived) {
         try {
-            Integer money = Integer.parseInt(moneyReceived);
+            int money = Integer.parseInt(moneyReceived);
             //Added if money added is not $1/$5/$10
             if (money == 1 || money == 5 || money == 10) {
                 balance += money;
@@ -21,7 +21,7 @@ public class Transaction {
                 System.out.println("PLEASE ENTER A VALID BILL");
             }
         } catch (Exception ex) {
-            System.out.println("PLEASE ENTER A VALID BILL");
+            System.out.println("PLEASE ENTER A VALID NUMBER");
         }
     }
 
@@ -80,12 +80,12 @@ public class Transaction {
         }
     }
 
-    public static void logTransaction(String action, double dollar) {
+    public void logTransaction(String action, double dollar) {
 
         File logFile = new File("log.txt");
 
         try(PrintWriter writer = new PrintWriter(new FileOutputStream(logFile, true))) {
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  ;
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date date = new Date();
 
             writer.println(formatter.format(date) + " " + action + ": $" + dollar + " $" + balance);

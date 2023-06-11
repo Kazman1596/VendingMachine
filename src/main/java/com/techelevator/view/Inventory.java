@@ -13,7 +13,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Inventory {
-    Item item;
     private static ArrayList<String> inventory = new ArrayList<>();
     private static Map<String, Item> inventoryMap = new TreeMap<>();
 
@@ -47,7 +46,7 @@ public class Inventory {
         return inventoryMap;
     }
 
-    public static void getSalesReport() {
+    public void getSalesReport() {
         //sales report must include date/time
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH_mm_ss");  ;
         Date date = new Date();
