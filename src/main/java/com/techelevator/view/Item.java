@@ -19,7 +19,6 @@ public class Item {
                 this.price = Double.parseDouble(price);
                 this.category = category;
                 this.itemInventory = 5;
-
     }
 
 

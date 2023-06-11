@@ -1,7 +1,6 @@
 package com.techelevator.view;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -14,7 +13,6 @@ public class Transaction {
     public void setBalance(String moneyReceived) {
         try {
             Integer money = Integer.parseInt(moneyReceived);
-
             //Added if money added is not $1/$5/$10
             if (money == 1 || money == 5 || money == 10) {
                 balance += money;
@@ -35,7 +33,7 @@ public class Transaction {
         System.out.println("Current Money Provided: $" + balance);
     }
 
-    public static void getChange() {
+    public void getChange() {
         double changeDue = balance;
         //counters for coins
         int quarter = 0;
@@ -59,21 +57,20 @@ public class Transaction {
     }
 
 
-    public void dispenseItem(String code) {
+    public void dispenseItem(String code, double balance) {
+        String upperCode = code.toUpperCase();
         Map<String, Item> inventory = Inventory.getInventoryMap();
-
-        if (inventory.containsKey(code)) {
-            Item currentItem = inventory.get(code);
-
+        if (inventory.containsKey(upperCode)) {
+            Item currentItem = inventory.get(upperCode);
             if (currentItem.getItemInventory() > 0) {
-                if (balance > currentItem.getPrice()) {
-                    balance -= currentItem.getPrice();
+                if (balance >= currentItem.getPrice()) {
+                    this.balance -= currentItem.getPrice();
                     currentItem.setItemInventory();
                     logTransaction(currentItem.getName(), currentItem.getPrice());
                     System.out.println(currentItem);
                     currentItem.getMessage();
                 } else {
-                    System.out.println("INSUFFICIENT FUNDS");
+                    System.out.println("PLEASE INSERT MORE MONEY");
                 }
             } else {
                 System.out.println("OUT OF STOCK");
