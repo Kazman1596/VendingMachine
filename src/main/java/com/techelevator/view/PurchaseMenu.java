@@ -29,7 +29,7 @@ public class PurchaseMenu {
                 transaction.dispenseItem(userInput, transaction.getBalance());
 
             } else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
-                Transaction.getChange();
+                transaction.getChange();
                 break;
             }
         }

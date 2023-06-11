@@ -10,7 +10,7 @@ import java.util.Map;
 public class Transaction {
     private static double balance = 0;
 
-    public static void setBalance(String moneyReceived) {
+    public void setBalance(String moneyReceived) {
         Integer money = Integer.parseInt(moneyReceived);
         if (money == 1 || money == 5 || money == 10) {
             balance += money;
@@ -26,7 +26,7 @@ public class Transaction {
         System.out.println("Current Money Provided: $" + balance);
     }
 
-    public static void getChange() {
+    public void getChange() {
         double changeDue = balance;
         //counters for coins
         int quarter = 0;
@@ -58,7 +58,7 @@ public class Transaction {
 
             if (currentItem.getItemInventory() > 0) {
                 if (balance >= currentItem.getPrice()) {
-                    balance -= currentItem.getPrice();
+                    this.balance -= currentItem.getPrice();
                     currentItem.setItemInventory();
                     logTransaction(currentItem.getName(), currentItem.getPrice());
                     System.out.println(currentItem);
