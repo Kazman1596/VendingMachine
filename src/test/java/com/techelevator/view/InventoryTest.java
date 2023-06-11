@@ -22,6 +22,18 @@ public class InventoryTest {
     }
 
     @Test
+    public void test_populating_inventory() {
+        //Arrange
+        Map<String, Item> inventory = Inventory.getInventoryMap();
+
+        //Act
+        int expected = 16;
+        int result = inventory.size();
+        //Assert
+        Assert.assertEquals(expected, result);
+    }
+
+    @Test
     public void test_dispense_existing_item() {
         //Arrange
         String code = "B4";
@@ -54,9 +66,8 @@ public class InventoryTest {
     @Test
     public void test_dispense_nonexisting_item() {
         //Arrange
-        String code = "candycane";
+        String code = "candy cane";
         double balance = 5.00;
-        Map<String, Item> inventory = Inventory.getInventoryMap();
         transaction.dispenseItem(code, balance);
 
         //Act
@@ -70,7 +81,6 @@ public class InventoryTest {
         //Arrange
         String code = "B4";
         double balance = 0.00;
-        Map<String, Item> inventory = Inventory.getInventoryMap();
         transaction.dispenseItem(code, balance);
 
         //Act
