@@ -27,14 +27,14 @@ Transaction transaction;
     @Test
     public void test_feed_money_non_valid_bill() {
         transaction.setBalance("3");
-        int expected = 0;
-        Assert.assertEquals(expected, (int)transaction.getBalance());
+        String expected = "PLEASE ENTER A VALID BILL";
+        Assert.assertEquals(expected, output.toString().trim());
     }
     @Test
     public void test_feed_money_non_number() {
         transaction.setBalance("a");
-        int expected = 0;
-        Assert.assertEquals(expected, (int)transaction.getBalance());
+        String expected = "PLEASE ENTER A VALID BILL";
+        Assert.assertEquals(expected, output.toString().trim());
     }
 
     @Test
