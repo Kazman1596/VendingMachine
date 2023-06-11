@@ -33,6 +33,8 @@ public class VendingMachineCLI {
 				inventory.displayInventory();
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				purchaseMenu.runPurchaseMenu();
+			} else if (choice.equals(MAIN_MENU_SECRET_OPTION)) {
+				inventory.getSalesReport();
 			} else if (choice.equals(MAIN_MENU_OPTION_EXIT)) {
 				break;
 			}

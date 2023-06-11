@@ -11,7 +11,7 @@ import java.util.Map;
 public class Transaction {
     private static double balance = 0;
 
-    public void setBalance(String moneyReceived) {
+    public static void setBalance(String moneyReceived) {
         Integer money = Integer.parseInt(moneyReceived);
         //Added if money added is not $1/$5/$10
         if (money == 1 || money == 5 || money == 10) {
