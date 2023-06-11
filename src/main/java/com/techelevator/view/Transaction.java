@@ -21,7 +21,7 @@ public class Transaction {
                 System.out.println("PLEASE ENTER A VALID BILL");
             }
         } catch (Exception ex) {
-            System.out.println("PLEASE ENTER A VALID NUMBER");
+            System.out.println("PLEASE ENTER A VALID BILL");
         }
     }
 
