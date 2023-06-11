@@ -49,7 +49,7 @@ public class Inventory {
 
     public static void getSalesReport() {
         //sales report must include date/time
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");  ;
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH_mm_ss");  ;
         Date date = new Date();
         File salesReportFile = new File("C:\\Users\\Student\\workspace\\nlr-14-module-1-capstone-team-3\\src\\main\\Reports\\" + formatter.format(date) + "_Sales_Report.txt");
         double totalSalesCounter = 0;

@@ -11,16 +11,23 @@ import java.util.Map;
 public class Transaction {
     private static double balance = 0;
 
-    public static void setBalance(String moneyReceived) {
-        Integer money = Integer.parseInt(moneyReceived);
-        //Added if money added is not $1/$5/$10
-        if (money == 1 || money == 5 || money == 10) {
-            balance += money;
-            logTransaction("FEED MONEY", money);
-        } else System.out.println("PLEASE ENTER A VALID BILL");
+    public void setBalance(String moneyReceived) {
+        try {
+            Integer money = Integer.parseInt(moneyReceived);
+
+            //Added if money added is not $1/$5/$10
+            if (money == 1 || money == 5 || money == 10) {
+                balance += money;
+                logTransaction("FEED MONEY", money);
+            } else {
+                System.out.println("PLEASE ENTER A VALID BILL");
+            }
+        } catch (Exception ex) {
+            System.out.println("PLEASE ENTER A VALID BILL");
+        }
     }
 
-    public static double getBalance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -59,11 +66,15 @@ public class Transaction {
             Item currentItem = inventory.get(code);
 
             if (currentItem.getItemInventory() > 0) {
-                balance -= currentItem.getPrice();
-                currentItem.setItemInventory();
-                logTransaction(currentItem.getName(), currentItem.getPrice());
-                System.out.println(currentItem);
-                currentItem.getMessage();
+                if (balance > currentItem.getPrice()) {
+                    balance -= currentItem.getPrice();
+                    currentItem.setItemInventory();
+                    logTransaction(currentItem.getName(), currentItem.getPrice());
+                    System.out.println(currentItem);
+                    currentItem.getMessage();
+                } else {
+                    System.out.println("INSUFFICIENT FUNDS");
+                }
             } else {
                 System.out.println("OUT OF STOCK");
             }

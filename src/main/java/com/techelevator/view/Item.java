@@ -1,5 +1,6 @@
 package com.techelevator.view;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Item {
@@ -14,6 +15,7 @@ public class Item {
     public Item(String inputCode,String name, String price, String category) {
                 this.code = inputCode;
                 this.name = name;
+                //this.price = Double.parseDouble(price);
                 this.price = Double.parseDouble(price);
                 this.category = category;
                 this.itemInventory = 5;
