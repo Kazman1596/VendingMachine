@@ -12,14 +12,13 @@ public class Transaction {
 
     public static void setBalance(String moneyReceived) {
         Integer money = Integer.parseInt(moneyReceived);
-        //Added if money added is not $1/$5/$10
         if (money == 1 || money == 5 || money == 10) {
             balance += money;
             logTransaction("FEED MONEY", money);
         } else System.out.println("PLEASE ENTER A VALID BILL");
     }
 
-    public static double getBalance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -51,18 +50,22 @@ public class Transaction {
     }
 
 
-    public void dispenseItem(String code) {
+    public void dispenseItem(String code, double balance) {
+        String upperCode = code.toUpperCase();
         Map<String, Item> inventory = Inventory.getInventoryMap();
-
-        if (inventory.containsKey(code)) {
-            Item currentItem = inventory.get(code);
+        if (inventory.containsKey(upperCode)) {
+            Item currentItem = inventory.get(upperCode);
 
             if (currentItem.getItemInventory() > 0) {
-                balance -= currentItem.getPrice();
-                currentItem.setItemInventory();
-                logTransaction(currentItem.getName(), currentItem.getPrice());
-                System.out.println(currentItem);
-                currentItem.getMessage();
+                if (balance >= currentItem.getPrice()) {
+                    balance -= currentItem.getPrice();
+                    currentItem.setItemInventory();
+                    logTransaction(currentItem.getName(), currentItem.getPrice());
+                    System.out.println(currentItem);
+                    currentItem.getMessage();
+                } else {
+                    System.out.println("PLEASE INSERT MORE MONEY");
+                }
             } else {
                 System.out.println("OUT OF STOCK");
             }
