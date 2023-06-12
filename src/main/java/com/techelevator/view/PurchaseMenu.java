@@ -23,7 +23,7 @@ public class PurchaseMenu {
                 //transaction.displayBalance();
             } else if (purchaseChoice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
 
-                inventory.displayInventory();
+                Inventory.displayInventory();
                 System.out.println("Please enter item code: ");
                 String userInput = scanner.nextLine();
                 transaction.dispenseItem(userInput, transaction.getBalance());

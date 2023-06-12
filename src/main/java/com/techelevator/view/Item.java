@@ -1,8 +1,5 @@
 package com.techelevator.view;
 
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-
 public class Item {
 
     private String code;
@@ -25,20 +22,12 @@ public class Item {
 
     //Getters and Setters
 
-    public String getCode() {
-        return code;
-    }
-
     public String getName() {
         return name;
     }
 
     public double getPrice() {
         return price;
-    }
-
-    public String getCategory() {
-        return category;
     }
 
     public int getItemInventory() {
